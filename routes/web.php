@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/editor', function () {
 //    return view('welcome');
     return view('editor');
 });
+
+Route::get('/notes', [NotesController::class, 'index'])->name('notes');
+Route::get('/notes/{note_by_id}', [NotesController::class, 'detail'])->name('detail');
 
 Route::get('/websites.html', function () { 
     return view('websites');
